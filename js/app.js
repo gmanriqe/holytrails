@@ -14,10 +14,7 @@ $(document).ready(function(){
         }, 300);
     });
 
-    $(".card-holytrails-bottom").hide();
     $("[class$='chevron-down']").on("click", function(){
-        console.log("hola....");
-        $(this).siblings('.card-holytrails-bottom').toggle();
         $(this).parent().toggleClass("active");
     });
 });

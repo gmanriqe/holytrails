@@ -110,7 +110,7 @@ General
 /* card holytrails */
 .card-holytrails {
     box-shadow: var(--primary-shadow);
-    padding: 38px 46px;
+    padding: 38px 46px 0;
     position: relative;
     border-radius: 15px;
 }
@@ -123,6 +123,7 @@ General
     left: 50%;
     transform: translate(-50%);
     transition: all .2s;
+    z-index: 2;
 }
 .card-holytrails.active i {
     transform: rotate(180deg);
@@ -155,12 +156,11 @@ General
     color: var(--primary-color);
 }
 
-.card-holytrails-bottom {
-    margin-top: 45px;
-    padding-top: 45px;
+.card-holytrails-top {
+    padding-bottom: 45px;
     position: relative;
 }
-.card-holytrails-bottom:after {
+.card-holytrails-top:after {
     content:"";
     display: inline-block;
     max-width: 568px;
@@ -168,9 +168,28 @@ General
     height: 2px;
     background-color: #F0F0F0;
     position: absolute;
-    top:0;
+    bottom: -3px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.card-holytrails-bottom {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0.5s, height 0.5s;
+}
+
+.card-holytrails-bottom p {
+    margin-bottom: 53px;
+    margin-top: 43px;
+}
+
+.card-holytrails.active .card-holytrails-bottom {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
 }
 
 /* btn card */
