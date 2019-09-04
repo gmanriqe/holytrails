@@ -1,11 +1,9 @@
 $(document).ready(function(){
     $('.close-button').click(function(){
+        var el = $(this);
         setTimeout(function () {
-
-            $(this).toggleClass("active");
-
+            el.toggleClass("active");
             $('.menu-fullscreen').toggleClass('open');
-
             $('.menu-principal li').each(function(i) {
                 (function(self, j) {
                     setTimeout(function() {
@@ -14,5 +12,12 @@ $(document).ready(function(){
                 })(this, i);
             });
         }, 300);
+    });
+
+    $(".card-holytrails-bottom").hide();
+    $("[class$='chevron-down']").on("click", function(){
+        console.log("hola....");
+        $(this).siblings('.card-holytrails-bottom').toggle();
+        $(this).parent().toggleClass("active");
     });
 });
